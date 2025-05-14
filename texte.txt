@@ -1,0 +1,54 @@
+<html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Blague Aléatoire en Ligne</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffeaa7;
+      text-align: center;
+      padding: 50px;
+    }
+    #blague {
+      font-size: 1.8em;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #fd79a8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e84393;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😂 Blague avec Youry😂</h1>
+  <p id="blague">Clique sur le bouton pour une blague fraîche !</p>
+  <button onclick="chargerBlague()">Nouvelle blague</button>
+
+  <script>
+    async function chargerBlague() {
+      const url = "https://official-joke-api.appspot.com/random_joke";
+
+      try {const reponse = await fetch(url);
+        const data = await reponse.json();
+        const blague = data.setup 🤔{data.punchline} 😂;
+        document.getElementById("blague").innerText = blague;
+      } catch (error) {
+        document.getElementById("blague").innerText = "Oops ! Une erreur s’est produite 😅";
+      }
+    }
+  </script>
+
+</body>
+</html>
